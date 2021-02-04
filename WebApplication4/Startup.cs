@@ -62,11 +62,13 @@ namespace WebApplication4
 
             app.UseRouting();
 
+            app.UseCors("mypolicy");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("mypolicy"); ;
             });
         }
     }
