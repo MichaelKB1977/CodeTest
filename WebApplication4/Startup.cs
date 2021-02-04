@@ -28,20 +28,6 @@ namespace WebApplication4
         {
 
             services.AddControllers();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("mypolicy",
-                builder =>
-                {
-                    builder
-                    .SetIsOriginAllowedToAllowWildcardSubdomains()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-                         });
-                    });
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication4", Version = "v1" });
@@ -56,7 +42,6 @@ namespace WebApplication4
                 app.UseDeveloperExceptionPage();                
             }
 
-            // Moved outside of dev env for this test
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication4 v1"));
 
