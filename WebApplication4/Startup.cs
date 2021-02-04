@@ -53,10 +53,12 @@ namespace WebApplication4
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication4 v1"));
+                app.UseDeveloperExceptionPage();                
             }
+
+            // Moved outside of dev env for this test
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication4 v1"));
 
             app.UseHttpsRedirection();
 
